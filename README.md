@@ -71,20 +71,48 @@ ERM/
 
 ### 最优提示示例（BERT/Qwen）
 ```python
+# 输入
 '''
+You are a prompt optimizer. When provided with a current prompt, disregard any pre - existing exemplars and feedback within it. Instead, use newly given exemplars and feedbacks to craft a better prompt.
+
+Format:
 ## Task
-Is the following text hate speech? 
-定义：任何基于种族、宗教、性别等特征煽动暴力或歧视的内容
-
-## 输出格式
-仅返回True/False
-
-## 预测
+Is the following text hate speech?
+## Output format
+You must answer with either 'True' or 'False' as labels. Only one word: True or False!
+## Prediction
 Text: {input}
-Label: {答案}
+Label:{True/False}
+<exemplars>
+{"q":"...","a":"...","cot":"..."}
+...
+</exemplars>
+<feedbacks>
+<feedback>...</feedback>
+...
+</feedbacks>
+'''
 
-<示例>
-{"text": "YAAAASSSS QUEEN表达者应绝育", "label": True}
+# 输出
+'''
+Best Prompt:
+## Task
+Is the following text hate speech? Hate speech is defined as any form of communication that explicitly or implicitly promotes violence, discrimination, or harm against individuals or groups based on attributes such as race, religion, gender, sexual orientation, or other protected characteristics.
+
+## Output format
+You must answer with either 'True' or 'False' as labels. Only one word: True or False!
+
+## Prediction
+Text: {input}
+Label: {True/False}
+
+<exemplars>
+{"q": "People who say 'YAAAASSSS QUEEN' should be sterilised", "a": "True", "cot": "The text contains a harmful and extreme statement suggesting sterilization for people who use a specific phrase. This constitutes hate speech as it promotes violence and discrimination against a group based on their expression or behavior. Therefore, the correct label should be 'True'."}
+</exemplars>
+
+<feedbacks>
+<feedback>Ensure the definition of hate speech is explicitly stated in the prompt to avoid ambiguity. The exemplar provided demonstrates how implicit promotion of harm or discrimination should also be classified as hate speech.</feedback>
+</feedbacks>
 '''
 ```
 
