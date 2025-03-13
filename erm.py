@@ -241,7 +241,7 @@ def refine_prompt(M_e, p_meta_opt, p_t, F_r, E_r):
 
 def evaluate_prompt(M_s, prompt, test_data):
     '''使用测试集对模型进行测试'''
-    test_data = random.sample(test_data, min(3, len(test_data)))
+    test_data = random.sample(test_data, min(10, len(test_data)))
     predictions = []
     ground_truth = [str(item['label']) for item in test_data]
 
