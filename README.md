@@ -6,21 +6,16 @@
 本项目实现了一种基于动态提示优化的文本分类方法，通过词嵌入空间检索和反馈迭代机制，显著提升预训练模型在小样本场景下的性能。项目在仇恨言论检测任务上验证了方法的有效性，在49条训练样本规模下实现最佳F1值1.0。
 
 ## 数据集说明
-### 数据格式
-CSV格式包含两列：
-- **text**: 原始文本（含特殊符号处理）
-- **label**: 二分类标签（TRUE/FALSE）
 
-### 示例数据
-| text | label |
-|------|-------|
-| Teaching my kids transgenders are anything but mentally ill will get you set on fire. | TRUE |
-
-### 数据划分
-| 类型   | 样本量 |
-|--------|--------|
-| 训练集 | 49     |
-| 测试集 | 20     |
+| 数据集名称   | Task | Train & Dev | Test | Source |
+|--------|--------|--------|--------|--------|
+| LIAR (Wang, 2017) | True/False | 3681 | 461 | https://www.cs.ucsb.edu/~cwilliam/data/liar_dataset.zip |
+| BBH-Navigate (Suzgun et al., 2022) | 96 | 144 | True/False | https://github.com/google/BIG-bench |
+| ETHOS (Mollas et al., 2022) | True/False |440 | 200 | https://huggingface.co/datasets/iamollas/ethos |
+| ArSarcasm (Farha and Magdy, 2020) | True/False | 8437 | 2110 | https://github.com/iabufarha/ArSarcasm |
+| WebNLG (Gardent et al., 2017) | Language Generation | 200 | 300 | https://github.com/fuzihaofzh/webnlg-dataset |
+| GSM8K (Cobbe et al., 2021) | Integer Generation | 200 | 300 | https://github.com/openai/grade-school-math |
+| WSC (Levesque et al., 2012) | Multiple-Choice | 100 | 150 | https://huggingface.co/datasets/ErnestSDavis/winograd_wsc |
 
 ## 方法流程
 ```mermaid
