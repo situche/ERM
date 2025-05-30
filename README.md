@@ -101,7 +101,7 @@ graph TD
 3. **评估方法**：
    - 试验集标签匹配
    - 核心指标：
-     * F1值：2*(P*R)/(P+R)
+     * F1值：2*(Precision*Recall)/(Precision+Recall)
 
 ---
 
